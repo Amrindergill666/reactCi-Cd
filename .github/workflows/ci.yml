@@ -27,10 +27,12 @@ jobs:
 
 
       - name: Build project
-        run: npm run build
+        run: |
+          npm run build
+          npm run export
 
       - name: Upload production-ready build
-        uses: actions/upload-artifact@v4   # ✅ use v4
+        uses: actions/upload-artifact@v4
         with:
-          name: react-build
-          path: .next
+          name: nextjs-build
+          path: out
