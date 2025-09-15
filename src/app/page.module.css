@@ -14,6 +14,18 @@
   padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
+  
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  overscroll-behavior: none;
+  height: 100svh;
+  width: 100svw;
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
