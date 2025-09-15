@@ -35,7 +35,7 @@ export default function HeroReact() {
         position: 'absolute',
         inset: 0,
         zIndex: 0,
-        background: 'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80) no-repeat center center/cover',
+        // background: 'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80) no-repeat center center/cover',
         filter: 'blur(6px)',
         opacity: 0.7,
       }}
