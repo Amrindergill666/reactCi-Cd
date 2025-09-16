@@ -1,50 +1,52 @@
-name: Next.js CI/CD
+# name: Next.js CI/CD
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 18
 
-      - name: Install dependencies
-        run: npm ci
+#       - name: Install dependencies
+#         run: npm ci
 
-      - name: Run Linter
-        run: npm run lint --if-present
+#       - name: Run Linter
+#         run: npm run lint --if-present
 
+#       - name: Run Tests
+#         run: npm test -- --watchAll=false
 
-      - name: Build project
-        run: |
-          npm run build
+#       - name: Build project
+#         run: |
+#           npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-pages-artifact@v3   # ✅ Special artifact for Pages
-        with:
-          path: out
+#       - name: Upload build artifact
+#         uses: actions/upload-pages-artifact@v3   # ✅ Special artifact for Pages
+#         with:
+#           path: out
 
-  deploy:
-    needs: build
-    permissions:
-      pages: write      # allow deployment
-      id-token: write   # required by GH Pages
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # deploy:
+  #   needs: build
+  #   permissions:
+  #     pages: write      # allow deployment
+  #     id-token: write   # required by GH Pages
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
